@@ -1,0 +1,39 @@
+insert into Tipus(id,nom) values (1,'professor'),(2,'alumnes'),(3,'admin');
+
+insert into Usuari (username,nom,cognoms,imatge,contrasenya,Tipus_id) values ('lestatuet','Lluc','Estatuet Torner','30.png','$2y$10$Y/WdcpVmAF6./sn3vINx/upRlkf6qtm.vpS9340LZEiIapNnt6HHO',1),
+('aursu','Adrian','Ursu', '31.png','$2y$10$Y/WdcpVmAF6./sn3vINx/upRlkf6qtm.vpS9340LZEiIapNnt6HHO',2),
+('admin','Bruna','Vidiella', '4.png','$2y$10$Y/WdcpVmAF6./sn3vINx/upRlkf6qtm.vpS9340LZEiIapNnt6HHO',3);
+
+insert into Any (idAny, actual) VALUES ('2022-2023', true);
+
+insert into Classe (nom,ubicacio,dia,hora,imatge,Any_idAny) VALUES
+('Viu la música', 'Argentona', 'Dilluns','10:30-16:40','1.png','2022-2023'),
+('Viu la música', 'Argentona', 'Dimecres','10:30-16:40','2.png','2022-2023'),
+('Gralla', 'Argentona', 'Divendres','10:40-6:50','3.png','2022-2023'),
+('Baix Elèctric', 'Mataró', 'Diumenge','22:40-9:50','1.png','2022-2023');
+
+insert into Usuari_has_Classe (Usuari_username, Classe_id) Values
+('lestatuet',4),('aursu',4),('lestatuet',3),('aursu',3);
+
+
+insert into Usuari (username,nom,cognoms,imatge,contrasenya,Tipus_id) values
+('prv1','Lluc','Estatuet Torner','30.png','$2y$10$Y/WdcpVmAF6./sn3vINx/upRlkf6qtm.vpS9340LZEiIapNnt6HHO',1),
+('prv2','Adrian','Ursu', '31.png','$2y$10$Y/WdcpVmAF6./sn3vINx/upRlkf6qtm.vpS9340LZEiIapNnt6HHO',1),
+('prv3','Bruna','Vidiella', '4.png','$2y$10$Y/WdcpVmAF6./sn3vINx/upRlkf6qtm.vpS9340LZEiIapNnt6HHO',2);
+
+insert into Grup Values
+(1,'Boom Burriacs'),(2,'Llenguatge 1');
+
+insert into Usuari_has_Grup (Usuari_username, Grup_id_grup) Values
+('lestatuet',1),('prv2',1),('prv3',1),('lestatuet',2),('prv2',2),('aursu',1);
+
+insert into Grup_has_Classe Values
+(1,1),(2,2);
+
+
+insert into Esdeveniment (nom, data) values ('Concert Gregori','Dilluns 25
+de maig');
+insert into Grup_has_Esdeveniment values (1,1);
+
+select c.nom, u.username from Classe c inner join Usuari_has_Classe uc on uc.Classe_id = c.id inner join Usuari u on u.username = uc.Usuari_username where u.Tipus_id !=1;
+
