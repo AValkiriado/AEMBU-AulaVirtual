@@ -5,8 +5,12 @@
             include 'header.php';
             include 'aside.php';
         ?>
-		<main>
+		<main><br>
+    
+    <br>
+          
             <h1 style="text-align:center;margin-top:0;">Tria la teva imatge de perfil</h1>
+
             <div class="imatges">
                   <div class="imatges-img">
                     <img id="1.png" class="imatges-imatge" src="assets/img/avatares/1.png" />
@@ -130,7 +134,8 @@
 
                     },
                     success: function(){
-                      location.reload(true);
+                      // location.reload(true);
+                      location.assign("?espai=conf");
                     }
                 })
 

@@ -38,7 +38,8 @@
                   }
                 echo '</div>';
                 echo '<br><br>';
-                echo "<a style=\"margin:2%;\" href=\"?espai=editarClasse&id=$idClase\"><button type=\"button\" class=\"btn btn-secondary\">EDITAR</button></a>";
+                echo "<a style=\"margin:2%;\" href=\"?espai=editarClasse&id=$idClase\"><button type=\"button\" class=\"btn btn-primary\">EDITAR CONTINGUT</button></a>";
+                echo "<a style=\"margin:2%;\" href=\"?espai=imgClasse&id=$idClase\"><button type=\"button\" class=\"btn btn-success\">EDITAR IMATGE</button></a>";
               }
             ?>
 		</main>

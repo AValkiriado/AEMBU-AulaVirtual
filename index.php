@@ -16,7 +16,7 @@ if (isset($_SESSION['username'])) {
     //Consultem les dades de l'usuari email
     $consulta = mysqli_query($conectar,"SELECT nom, cognoms, dni, tutor_dni, imatge from Usuari where username = \"$username\"");
     $array = mysqli_fetch_assoc($consulta);
-
+    $any='2022-2023';
 
     $_SESSION['nom']=$array['nom'];
     $id = $username;
@@ -52,6 +52,21 @@ if (isset($_SESSION['username'])) {
                 case "esdeveniment":
                     include("template/adminEsdeveniment.php");
                     break;
+                case "CreateEsdeveniment":
+                    include("template/CreateEsdeveniment.php");
+                    break;
+                case "EsdevenimentToGrup":
+                    include("template/EsdevenimentToGrup.php");
+                    break;
+                case "RemoveEsdevenimentToGrup":
+                    include("template/RemoveEsdevenimentToGrup.php");
+                    break;
+                case "deleteEsdeveniment":
+                    include("template/deleteEsdeveniment.php");
+                    break;
+                case "VeureEsdeveniments":
+                    include("template/VeureEsdeveniments.php");
+                    break;
                 case "UsrToGrup":
                     include("template/UsrToGrup.php");
                     break;
@@ -61,8 +76,11 @@ if (isset($_SESSION['username'])) {
                 case "CreateUsr":
                     include("template/CreateUsr.php");
                     break;
-                case "CreateClasse":
-                    include("template/crearclasse.php");
+                case "CreateClasseInd":
+                    include("template/crearclasseInd.php");
+                    break;
+                case "CreateClasseGrup":
+                    include("template/CreateClasseGrup.php");
                     break;
                 case "UsrToClass":
                     include("template/UsrToClass.php");
@@ -79,6 +97,30 @@ if (isset($_SESSION['username'])) {
                 case "VeureUsuari":
                     include("template/VeureUsuari.php");
                     break;
+                case "CreateGrup":
+                    include("template/CreateGrup.php");
+                    break;
+                case "VeureGrup":
+                    include("template/VeureGrup.php");
+                    break;
+                case "RemoveUsrToGrup":
+                    include("template/RemoveUsrToGrup.php");
+                    break;
+                case "inventari":
+                    include("template/inventari.php");
+                    break;
+                case "CreateInv":
+                    include("template/CreateInv.php");
+                    break;
+                case "InvToUsr":
+                    include("template/InvToUsr.php");
+                    break;
+                case "VeureInv":
+                    include("template/VeureInv.php");
+                    break;
+                case "editarEsdeveniment":
+                    include("template/editarEsdeveniment.php");
+                    break;
                 default:
                     include("template/Admin.php");
             }
@@ -91,6 +133,9 @@ if (isset($_SESSION['username'])) {
             break;
         case "selectImg":
             include("template/selectImage.php");
+            break;
+        case "imgClasse":
+            include("template/imgClasse.php");
             break;
         case "classe":
             include("template/VistaClasse.php");
@@ -106,6 +151,12 @@ if (isset($_SESSION['username'])) {
             break;
         case "esdeveniment":
             include("template/esdeveniments.php");
+            break;
+        case "dretsideures":
+            include("template/normesConsells.php");
+            break;
+        case "chpwd":
+            include("template/chpwd.php");
             break;
         default:
             include("template/404.php");

@@ -28,12 +28,14 @@ include 'head.php';
             include 'header.php';
             include 'aside.php';
         ?>
-		<main>
-<form method="post">
+<main>
+<br><br>
+<h1 class="main-title">Crear Usuari</h1>
+<div class="form1-group">
 
-<div class="form-group">
+    <form method="post">
     <label for="login">Nom d'usuari</label>
-    <input type="text" class="form-control" id="login" name="login">
+    <input type="text" class="form-control" id="login" name="login" required>
 
     <label for="name">Nom</label>
     <input type="text" class="form-control" id="name" name="name" required>
@@ -54,10 +56,12 @@ include 'head.php';
     <input type="radio" id="3" name="rol" value="3">
     <label for="3">Administrador</label>
 
-</div>
-
+</div><br>
+<div class="submit-button">
 <input type="submit" name="submit" class="btn btn-primary" value="Guardar">
+</div>
 </form>
+</div>
 	</main>
 	</div>
 

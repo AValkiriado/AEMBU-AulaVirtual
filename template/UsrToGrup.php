@@ -11,12 +11,28 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
     }
     $query = substr($query,0,strlen($query)-1);
     $query.=';';
-    $resultat = mysqli_query($conectar,$query);
+    
+    if (mysqli_query($conectar, $query)) {
+        echo '<script type="text/javascript"> window.onload = function () { alert("S\'han asignat els usuaris"); }</script>';
+    }
+    else {
+        echo '<script type="text/javascript">window.onload = function () { alert("S\'ha produit un error"); }</script>';
+    }
 }
 
-
+include 'head.php';
+echo '<body><div class="wrapper a">';
+include 'header.php';
+include 'aside.php';
 //Printar el formulari
-echo '<form method="post">';
+echo '
+<main>
+<br><br>
+<h1 class="main-title">Inserir Usuaris a un Grup</h1>
+<div class="form2-group">
+
+    <form method="post">
+';
 
 $Usuaris = mysqli_query($conectar,"select * from Usuari where Tipus_id != 3;");
 $Grups = mysqli_query($conectar,"select * from Grup;");
@@ -47,7 +63,7 @@ while($grup=mysqli_fetch_assoc($Grups))
 }
 echo '</select>';
 echo '</div><br>';
-echo '<input type="submit" name="submit" class="btn btn-primary" value="Guardar">';
+echo '<div class="submit-button"><input type="submit" name="submit" class="btn btn-primary" value="Guardar"></div>';
 
-echo '</form>';
+echo '</form></div>';
  ?>

@@ -7,7 +7,13 @@ if(isset($_POST['submit'])&&!empty($_POST['submit'])){
 
     $query = "insert into Grup_has_Classe Values($GrupEscollit,$ClasseEscollit);";
 //     $resultat = mysqli_query($conectar,$query);
-    echo $query;
+
+    if (mysqli_query($conectar, $query)) {
+        echo '<script type="text/javascript"> window.onload = function () { alert("S\'ha assignat el grup"); }</script>';
+    }
+    else {
+        echo '<script type="text/javascript">window.onload = function () { alert("S\'ha produit un error"); }</script>';
+    }
 }
 include 'head.php';
 ?>
@@ -18,7 +24,11 @@ include 'head.php';
             include 'header.php';
             include 'aside.php';
         ?>
-		<main>
+<main>
+<br><br>
+<h1 class="main-title">Afegir Grup a Classe</h1>
+<div class="form2-group">
+
 <?php
 //Printar el formulari
 echo '<form method="post">';
@@ -43,9 +53,9 @@ while($grup=mysqli_fetch_assoc($grups)){
     echo "<option value=\"$grupID\">$grupNom</option>";
 }
 echo '</select></div><br>';
-echo '<input type="submit" name="submit" class="btn btn-primary" value="Guardar">';
+echo '<div class="submit-button"><input type="submit" name="submit" class="btn btn-primary" value="Guardar"></div>';
 
-echo '</form>';
+echo '</form></div>';
  ?>
 </main>
 	</div>

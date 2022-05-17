@@ -18,7 +18,7 @@ while($classe=mysqli_fetch_assoc($Classes))
                 <img src=\"assets/img/assignaturas/$classeImatge\" />
             </div>
             <div class=\"tema\">
-                <div class=\"assign\"><u>$classeNom</u></div>
+                <div class=\"assign\"><p>$classeNom</p></div>
                 <div class=\"hora\">$classeDia , $classeHora</div>
             </div>
         </div>
@@ -65,7 +65,7 @@ while($classe=mysqli_fetch_assoc($Classes))
                 <img src=\"assets/img/assignaturas/$classeImatge\" />
             </div>
             <div class=\"tema\">
-                <div class=\"assign\"><u>$classeNom</u></div>
+                <div class=\"assign\"><p>$classeNom</p></div>
                 <div class=\"hora\">$classeDia , $classeHora</div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'head.php';
 $id = $_GET['id'];
 $contingut = mysqli_query($conectar,"select Contingut from Classe where id=$id;");
 while($cnt=mysqli_fetch_assoc($contingut)){
@@ -88,6 +89,11 @@ while($cnt=mysqli_fetch_assoc($contingut)){
 </head>
 
 <body onload="initDoc();">
+<div class="wrapper a">
+        <?php
+            include 'header.php';
+            include 'aside.php';
+        ?>
 <form name="compForm" method="post" action="../php/guardarClasse.php" onsubmit="if(validateMode()){this.myDoc.value=oDoc.innerHTML;return true;}return false;" style="margin: 2%;">
 <input type="hidden" name="myDoc">
 <input type="hidden" name="id" value="<?php echo $id;?>">
@@ -157,9 +163,10 @@ while($cnt=mysqli_fetch_assoc($contingut)){
 <img class="intLink" title="Paste" onclick="formatDoc('paste');" src="data:image/gif;base64,R0lGODlhFgAWAIQUAD04KTRLY2tXQF9vj414WZWIbXmOrpqbmpGjudClFaezxsa0cb/I1+3YitHa7PrkIPHvbuPs+/fvrvv8/f///////////////////////////////////////////////yH5BAEAAB8ALAAAAAAWABYAAAWN4CeOZGmeaKqubGsusPvBSyFJjVDs6nJLB0khR4AkBCmfsCGBQAoCwjF5gwquVykSFbwZE+AwIBV0GhFog2EwIDchjwRiQo9E2Fx4XD5R+B0DDAEnBXBhBhN2DgwDAQFjJYVhCQYRfgoIDGiQJAWTCQMRiwwMfgicnVcAAAMOaK+bLAOrtLUyt7i5uiUhADs=" />
 </div>
 <div id="textBox" contenteditable="true"><?php echo $contingut;?></div>
-<p id="editMode"><input type="checkbox" name="switchMode" id="switchBox" onchange="setDocMode(this.checked);" /> <label for="switchBox">Mostrar Codi font</label></p>
+<p id="editMode"><input type="checkbox" name="switchMode" id="switchBox" onchange="setDocMode(this.checked);" style="display: none" disabled/> <!--<label for="switchBox">Mostrar Codi font</label>--></p>
 <p><input type="submit" value="Guardar" /></p>
 </form>
+</div>
 </body>
 </html>
 
